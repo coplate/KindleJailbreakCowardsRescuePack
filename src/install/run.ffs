@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# $Id: run.ffs 11204 2014-11-30 15:47:25Z NiLuJe $
+#
+##
+OTA=com.lab126.blanket.ota
+
+progress()
+{
+	lipc-send-event $OTA otaSplashProgress -i $1
+	local x=48
+	local y=11
+	eips 0 $y "                                                ";
+	eips $((($x - $(expr length "$2")) / 2)) $y "$2"
+	sleep 2
+}
+
+fail()
+{
+	lipc-send-event $OTA otaSplashError -s "${1}"
+	sleep 10
+	exit 1;
+}
+
+# Hack-specific stuff
+RP_PERSISTENT_STORAGE="/var/local/rp"
+RP_BACKUP_STORAGE="/mnt/us/rp"
+
+progress 30 "Removing deprecated content"
+if [ -f "/etc/upstart/cowardsdebrick" ] ; then
+	rm -f "/etc/upstart/cowardsdebrick" || fail "Unable to remove deprecated cowardsdebrick script"
+fi
+if [ -f "${RP_PERSISTENT_STORAGE}/cowardsdebrick" ] ; then
+	rm -f "${RP_PERSISTENT_STORAGE}/cowardsdebrick" || fail "Unable to remove deprecated backup cowardsdebrick script"
+fi
+
+progress 60 "Copying cowardsdebrick job to main partition"
+cp -f "cowardsdebrick.conf" "/etc/upstart/cowardsdebrick.conf" || fail "Unable to copy cowardsdebrick.conf"
+chmod 644 "/etc/upstart/cowardsdebrick.conf" || fail "Unable to chmod 644 cowardsdebrick.conf"
+
+progress 90 "Backing up cowardsdebrick job"
+mkdir -p "${RP_PERSISTENT_STORAGE}" || fail "Unable to create RP persistent storage folder"
+cp -af "/etc/upstart/cowardsdebrick.conf" "${RP_PERSISTENT_STORAGE}/cowardsdebrick.conf" || fail "Unable to store cowardsdebrick.conf"
+mkdir -p "${RP_BACKUP_STORAGE}" || fail "Unable to create RP backup storage folder"
+cp -f "/etc/upstart/cowardsdebrick.conf" "${RP_BACKUP_STORAGE}/cowardsdebrick.conf" || fail "Unable to backup cowardsdebrick.conf"
+
+progress 100 "Installation complete."
+

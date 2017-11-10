@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# $Id: run.ffs 11169 2014-11-25 23:04:52Z NiLuJe $
+#
+##
+OTA=com.lab126.blanket.ota
+
+progress()
+{
+	lipc-send-event $OTA otaSplashProgress -i $1
+	local x=48
+	local y=11
+	eips 0 $y "                                                ";
+	eips $((($x - $(expr length "$2")) / 2)) $y "$2"
+	sleep 2
+}
+
+fail()
+{
+	lipc-send-event $OTA otaSplashError -s "${1}"
+	sleep 10
+	exit 1;
+}
+
+
+progress 50 "Removing cowardsdebrick scripts"
+if [ -f "/etc/upstart/cowardsdebrick" ] ; then
+	rm -f "/etc/upstart/cowardsdebrick" || fail "Unable to remove cowardsdebrick script"
+fi
+if [ -f "/etc/upstart/cowardsdebrick.conf" ] ; then
+	rm -f "/etc/upstart/cowardsdebrick.conf" || fail "Unable to remove cowardsdebrick.conf"
+fi
+
+progress 100 "Uninstallation complete."

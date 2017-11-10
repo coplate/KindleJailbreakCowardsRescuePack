@@ -1,0 +1,140 @@
+2016-07-18 18:13  NiLuJe
+
+	* [r13376] src/install/cowardsdebrick.conf:
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Debrick:
+	  * Set traps on a few more files... Hopefully this catches the Oasis &
+	  KT3.
+	  Might be false-positives with USB Audio Dongle, but, meh.
+
+2016-02-06 15:36  NiLuJe
+
+	* [r12832] README:
+	  
+	  Kindle Touch Hacks:
+	  * Slightly touch up the RP/CRP docs to be more explicit that they're
+	  sane on newer HW.
+
+2016-01-20 23:53  NiLuJe
+
+	* [r12803] README:
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Inline dsmid's post
+	  (http://www.mobileread.com/forums/showpost.php?p=2784842&postcount=12)
+	  with 'get out of diags' instructions in the README.
+
+2016-01-16 01:37  NiLuJe
+
+	* [r12790] build/build-updates.sh:
+	  
+	  Kindle Touch Hacks:
+	  * Package the Rescue Pack & CRP for newer Wario devices too, it
+	  appears to be safe & functional :).
+
+2015-04-28 19:31  NiLuJe
+
+	* [r11910] build/build-updates.sh:
+	  
+	  The great shebang enfixening!
+
+2014-12-01 12:31  NiLuJe
+
+	* [r11209] README:
+	  
+	  Kindle Touch Hacks:
+	  * Update the RP & CRP ReadMes
+
+2014-11-30 15:47  NiLuJe
+
+	* [r11204] src/install/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePacks:
+	  * Oops, can't preserve permissions when copying to vfat
+
+2014-11-30 15:38  NiLuJe
+
+	* [r11203] src/install/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * RescuePacks:
+	  * Oops, I'd kind of forgot the backup bit introduced in 1.14.N, thanks
+	  for reminding me, @hfpop ;).
+
+2014-11-25 23:04  NiLuJe
+
+	* [r11169] src/install/run.ffs, src/uninstall/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Oops, fix install script
+
+2014-11-24 16:09  NiLuJe
+
+	* [r11154] build/build-updates.sh, src/install/cowardsdebrick.conf:
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Bundle it for the Touch, even though it's not completely functional
+	  there...
+
+2014-11-24 15:52  NiLuJe
+
+	* [r11153] src/install/run.ffs, src/uninstall/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Rescue Packs:
+	  * Minor tweaks & cleanups
+
+2014-11-24 15:46  NiLuJe
+
+	* [r11152] src/install/cowardsdebrick[DEL],
+	  src/install/cowardsdebrick.conf, src/install/run.ffs,
+	  src/uninstall/run.ffs:
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Inline the script inot the upstart job, we don't sleep, we don't
+	  need to fork ;).
+
+2014-11-23 18:35  NiLuJe
+
+	* [r11149] .[CPY]:
+	  
+	  Kindle Touch Hacks:
+	  * Epic typo.
+
+2014-11-23 18:26  NiLuJe
+
+	* [r11147]
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Minor cosmetic tweaks
+
+2014-11-23 18:25  NiLuJe
+
+	* [r11146]
+	  
+	  Kindle Touch Hacks:
+	  * Coward's Rescue Pack:
+	  * Play nice w/ the latest bridge
+
+2014-11-23 18:17  NiLuJe
+
+	* [r11144]
+	  
+	  Kindle Touch Hacks:
+	  * RescuePack:
+	  * Add a build script
+
+2014-11-23 18:11  NiLuJe
+
+	* [r11143]
+	  
+	  Kindle Touch Hacks:
+	  * Initial import of the RP & CRP (current upstream versions)
+

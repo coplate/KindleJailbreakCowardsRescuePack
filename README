@@ -1,0 +1,27 @@
+$Id: README 12832 2016-02-06 15:36:04Z NiLuJe $
+
+I've got a new Paperwhite 2 and I can't wait to do nasty things to that poor device.
+Therefore I made this addon that should make the Kindle as brick-proof as possible.
+
+It is called Coward's Rescue Pack Addon and it should be installed after ixtab's Rescue Pack ( http://www.mobileread.com/forums/showthread.php?t=195670 ).
+
+Its purpose is simple - whenever a USB power connection is detected during boot, the Kindle reboots in diags mode.
+The probe is done as early as possible and does not require the userstore to be up/sane.
+The downside is you will get to diags if you forget yourself and reboot while the device is charging.
+
+
+If you ever do that inadvertently and can't access the device over SSH, the easiest way to reboot into the main system is to ask nicely ;).
+By which I mean:
+
+1. Tap on "S) Device settings"
+2. Tap on "X) Exit"
+3. Tap on "D) Exit, Reboot or Disable diags"
+4. Tap on "D) Disable diagnostics"
+5. Tap on "Q) To continue"
+
+Steps 1 and 2 are only needed once, you can safely skip to step 3 on subsequent diags boot.
+
+
+To do the same over SSH, see the RescuePack README ;).
+
+-- dsmid
